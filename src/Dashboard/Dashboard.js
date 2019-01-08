@@ -3,10 +3,12 @@ import { View, Text, Image, ScrollView } from 'react-native'
 import { Card, ListItem } from 'react-native-elements'
 import ProgressCircle from 'react-native-progress-circle'
 import { Container, Button, Header, Content, Icon } from 'native-base';
-
+import { Actions } from 'react-native-router-flux';
 export default class Dashboard extends Component {
 
-
+movestart(){
+    Actions.startfile();
+}
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: '#cececd' }}>
@@ -76,21 +78,19 @@ export default class Dashboard extends Component {
 
                             <View style={{ width: '100%', height: 20, flexDirection: 'row' }}>
 
-                                <Icon ios='ios-timer-outline' android="ios-man" style={{ fontSize: 20, marginLeft: 10, color: 'green' }} />
+                                <Icon ios='ios-walk' android="ios-walk" style={{ fontSize: 20, marginLeft: 10, color: 'green' }} />
                                 <Text style={{ fontSize: 12, color: '#cececd', marginLeft: 5, marginTop: 2 }}>Exercise</Text>
-                                <Button rounded iconLeft light style={{ borderWidth: 2, height: 25, width: 100, borderColor: '#cececd', backgroundColor: 'white', marginLeft: 90 }}>
-                                    <Text style={{ padding: 5, marginLeft: 15, color: 'black', fontWeight: 'bold', fontSize: 12 }}>START</Text>
+                                <Button rounded iconLeft light style={{ borderWidth: 2, height: 25, width: 100, borderColor: '#cececd', backgroundColor: 'white', marginLeft: 90 }} onPress={this.movestart}>
+                                    <Text style={{ padding: 5, marginLeft: 15, color: 'black', fontWeight: 'bold', fontSize: 12 }} >START</Text>
                                     <Icon name='md-arrow-dropright' />
                                 </Button>
                             </View>
-                            <View style={{ width: '100%', height: 60, flexDirection: 'row' }}>
-                                <Text style={{ fontSize: 35, color: 'black', marginLeft: 10 }}>56 </Text>
-                                <Text style={{ fontSize: 12, marginLeft: 0, color: '#cececd', marginTop: 22 }}>/60 mins </Text>
-                                <Text style={{ fontSize: 14, fontWeight: 'bold', marginLeft: 60, color: 'black', marginTop: 20 }}>1712 </Text>
-                                <Text style={{ fontSize: 12, marginLeft: 1, color: '#cececd', marginTop: 22 }}>cal </Text>
-                                <Text style={{ fontSize: 14, fontWeight: 'bold', marginLeft: 5, color: 'black', marginTop: 20 }}>1.26 </Text>
-                                <Text style={{ fontSize: 12, marginLeft: 1, color: '#cececd', marginTop: 22 }}>mins </Text>
-
+                            <View style={{ width: '80%', height: 30,marginTop:20,marginLeft:20, borderRadius:10, backgroundColor:'#E0E0E0', flexDirection: 'row' }}>
+                        
+                            <Text style={{ fontSize: 15,fontWeight:'bold', marginLeft: 15, marginTop: 5 }}>Running</Text>
+                            <Text style={{ fontSize: 15,fontWeight:'bold', marginLeft: 15, marginTop: 5 }}>00:31:01</Text>
+                            <Text style={{ fontSize: 15,fontWeight:'bold', marginLeft: 15, marginTop: 5 }}>4.73</Text>
+                            <Text style={{ fontSize: 15,fontWeight:'bold', marginLeft: 5, marginTop: 5 ,color:'#C0C0C0'}}>km</Text>
                             </View>
                         </View>
                     </Card>

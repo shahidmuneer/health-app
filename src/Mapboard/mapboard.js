@@ -12,6 +12,7 @@ import { Header, Left, Tab, Tabs, TabHeading,DatePicker, Body, Right, Button, Ic
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import GraphTab from './graphwraper';
 import Moment from 'moment';
+import { Actions } from 'react-native-router-flux';
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
@@ -40,6 +41,9 @@ export default class Mapnative extends Component {
       time: '20:00',
       datetime: '2016-05-05 20:00',
       }
+    }
+    moveDashboard(){
+      Actions.Dashboard();
     }
   picklocation = event => {
     const coords = event.nativeEvent.coordinate;
@@ -72,7 +76,7 @@ export default class Mapnative extends Component {
         <Header style={{ backgroundColor: 'white' }}>
           <Left>
             <Button transparent>
-              <Icon name='ios-arrow-back' style={{ color: 'black' }} />
+              <Icon name='ios-arrow-back' style={{ color: 'black' }} onPress={this.moveDashboard} />
 
             </Button>
           </Left>
